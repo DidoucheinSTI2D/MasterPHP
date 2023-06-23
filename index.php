@@ -8,8 +8,9 @@
 
 <body>
     <h1> Bienvnue sur notre Masterclass en PHP</h1>
+
     <button><a href="./register.php">S'Inscrire</a></button>
-    <button>Se connecter</button>
+    <button><a href="./login.php">Se connecter</a></button>
     <button>En savoir plus sur les développeurs de ce super site !</button>
 </body>
 </html>
