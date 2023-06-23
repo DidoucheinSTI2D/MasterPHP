@@ -54,7 +54,6 @@
             </div>
             <button type="submit" name="connexion">Se Connecter</button>
             <p> <?php if (isset($erreur))  echo "$erreur" ?></p>
-            <button></button>
         </form>
     </div>
 </body>
