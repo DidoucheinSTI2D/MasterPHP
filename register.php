@@ -37,8 +37,8 @@
     if ($password != $password_validation ) $erreurconfirmation = "Les 2 mots de passes indiqués ne correspondent pas.";
 
     if (empty($erreurprenom) && empty($erreurnom) && empty($erreurmail) && empty($erreurpassword) && empty($erreurconfirmation) ){
-        $insertbdd = $bdd->prepare("INSERT INTO user(Prenom,Nom,Email,Password) VALUES(?, ?, ?, ?)");
-        $insertbdd->execute(array($prenom, $nom, $mail, $pwhash));
+        $insertbdd = $bdd->prepare("INSERT INTO user(Prenom,Nom,Email,Password,role) VALUES(?, ?, ?, ?, ?)");
+        $insertbdd->execute(array($prenom, $nom, $mail, $pwhash,'user'));
 
         header("Location: index.php");
         exit();
