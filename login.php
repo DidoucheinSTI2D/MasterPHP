@@ -28,11 +28,11 @@
         }
 
         if (empty($erreur)){
-            $_SESSION['id_utilisateur'] = $resultatMembre['id_Utilisateur'];
+            $_SESSION['id'] = $resultatMembre['id'];
             $_SESSION['Prenom'] = $resultatMembre['Prenom'];
             $_SESSION['Nom'] = $resultatMembre['Nom'];
             $_SESSION['Email'] = $resultatMembre['Email'];
-            header("Location: profil.php?id=" .  $_SESSION['id_utilisateur']);
+            header("Location: profil.php?id=" .  $_SESSION['id']);
         }
 
 
@@ -47,13 +47,14 @@
         <form method="POST">
             <h1> Se connecter </h1>
             <div>
-                <input type="text" name="Email" required="required" autocomplete="on" placeholder="votre@email.com">
+                <input type="text" name="Email" required="required" autocomplete="on" placeholder="votre@email.com" value="<?php echo isset($_POST['Email']) ? $_POST['Email'] : ''; ?>">
             </div>
             <div>
                 <input type="password" name="Password" required="required" autocomplete="off" placeholder="votre mot de passe">
             </div>
             <button type="submit" name="connexion">Se Connecter</button>
             <p> <?php if (isset($erreur))  echo "$erreur" ?></p>
+            <button></button>
         </form>
     </div>
 </body>
