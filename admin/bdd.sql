@@ -7,5 +7,5 @@ CREATE TABLE `user`(
     `Nom` varchar(50),
     `Email` varchar(250),
     `Password` varchar(250),
-    `role` varchar(4)
+    `role` varchar(5)
 )

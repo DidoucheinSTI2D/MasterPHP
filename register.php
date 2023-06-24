@@ -56,23 +56,23 @@
         <form method="POST">
             <div>
                 <input type="text" name="Prenom" placeholder="Prenom ..." required="required" autocomplete="on">
-                <p><?php if (isset($erreurprenom)) echo $erreurprenom ?></p>
+                <p style="color: red;"><?php if (isset($erreurprenom)) echo $erreurprenom ?></p>
             </div>
             <div>
                 <input type="text" name="Nom" placeholder="Nom ..." required="required" autocomplete="on">
-                <p><?php if (isset($erreurnom)) echo $erreurnom ?></p>
+                <p style="color: red;"><?php if (isset($erreurnom)) echo $erreurnom ?></p>
             </div>
             <div>
                 <input type="email" name="Email" placeholder="votre@mail.com" required="required" autocomplete="on">
-                <p><?php if (isset($erreurmail)) echo $erreurmail ?></p>
+                <p> style="color: red;"<?php if (isset($erreurmail)) echo $erreurmail ?></p>
             </div>
             <div>
                 <input type="password" name="Password" placeholder="mot de passe" required="required" autocomplete="off">
-                <p><?php if (isset($erreurpassword)) echo $erreurpassword ?></p>
+                <p style="color: red;"><?php if (isset($erreurpassword)) echo $erreurpassword ?></p>
             </div>
             <div>
                 <input type="password" name="password_validation" placeholder="veuillez confirmez votre mot de passe" required="required" autocomplete="off">
-                <p><?php if (isset($erreurconfirmation)) echo $erreurconfirmation ?></p>
+                <p> style="color: red;"<?php if (isset($erreurconfirmation)) echo $erreurconfirmation ?></p>
             </div>
 
             <button type="submit" name="registerform"> Valider votre inscription </button>

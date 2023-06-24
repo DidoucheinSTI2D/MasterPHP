@@ -12,7 +12,7 @@ require './structure/config.php';
 
 if (!empty($_GET['id'])) $getId = intval($_GET['id']);
 
-if ($getId != $_SESSION['id']) header("Location: index.php");
+if ($getId != $_SESSION['id']) header("Location: login.php");
 
 
 
@@ -26,9 +26,11 @@ if ($getId != $_SESSION['id']) header("Location: index.php");
     $Nom = $infoUtilisateur['Nom'];
     $Prenom = $infoUtilisateur['Prenom'];
     $id = $infoUtilisateur['id'];
+    $role = $infoUtilisateur['role'];
 
     $changepn = "pnchange.php?id=" . $id;
     $pwchange = "pwchange.php?id=" . $id;
+    $backoffice = "./admin/backoffice.php?id=" . $id;
 
 ?>
 
@@ -36,6 +38,11 @@ if ($getId != $_SESSION['id']) header("Location: index.php");
     <h1>Bienvenue sur votre espace </h1>
 
     <div>
+        <h2 style="color: red;"><?php
+        if (isset($_GET['error']) && $_GET['error'] === "user"){
+            echo "Vous n'êtes pas autorisé à accéder à cette page.";
+        }
+        ?></h2>
         <h3> Prenom : <?php echo $Prenom?></h3>
         <h3> Nom : <?php echo $Nom?></h3> <p>
         <h3> Email : <?php echo $Email?> </h3>
@@ -46,6 +53,13 @@ if ($getId != $_SESSION['id']) header("Location: index.php");
     <div>
         <button><a href="logout.php">Se déconnecter</a></button>
     </div>
+
+    <?php
+        if ($role == 'admin'){
+            ?> <a href="<?php echo $backoffice ?>" > accéder au backoffice </a>
+    <?php
+        }
+    ?>
 
 
 </body>

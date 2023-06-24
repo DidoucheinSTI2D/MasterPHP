@@ -66,8 +66,8 @@ if (isset($_POST['changepn'])){
         <div>
             <button type="submit" name="changepn">Effectuer les changements</button>
             <br>
-            <?php if (isset($erreurnom)) echo $erreurnom ?>
-            <?php if (isset($erreurprenom)) echo $erreurprenom ?>
+            <h2 style="color: red;"><?php if (isset($erreurnom)) echo $erreurnom ?></h2>
+            <h2 style="color: red;"><?php if (isset($erreurprenom)) echo $erreurprenom ?></h2>
         </div>
     </form>
 
