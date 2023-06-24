@@ -20,7 +20,7 @@ if ($getId != $_SESSION['id']) header("Location: index.php");
     $resultat = $connect->execute();
     $infoUtilisateur = $connect->fetch();
 
-    $Email = $infoUtilisateur['Email'];
+
     $Nom = $infoUtilisateur['Nom'];
     $Prenom = $infoUtilisateur['Prenom'];
     $id = $infoUtilisateur['id'];
