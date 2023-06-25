@@ -10,6 +10,7 @@
 session_start();
 require './structure/config.php';
 
+// TODO: pourquoi intval ???
 if (!empty($_GET['id'])) $getId = intval($_GET['id']);
 
 if ($getId != $_SESSION['id']) header("Location: login.php");

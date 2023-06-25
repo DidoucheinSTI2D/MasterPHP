@@ -1,6 +1,6 @@
 <?php
 try {
-    $bdd = new PDO('mysql:host=localhost;dbname=PHPMASTER', 'root');
+    $bdd = new PDO('mysql:host=db;dbname=PHPMASTER', 'root', 'toor');
 }
 catch(Exception $e)
 {
