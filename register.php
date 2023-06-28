@@ -64,7 +64,7 @@
             </div>
             <div>
                 <input type="email" name="Email" placeholder="votre@mail.com" required="required" autocomplete="on">
-                <p> style="color: red;"<?php if (isset($erreurmail)) echo $erreurmail ?></p>
+                <p style="color: red;"><?php if (isset($erreurmail)) echo $erreurmail ?></p>
             </div>
             <div>
                 <input type="password" name="Password" placeholder="mot de passe" required="required" autocomplete="off">
@@ -72,7 +72,7 @@
             </div>
             <div>
                 <input type="password" name="password_validation" placeholder="veuillez confirmez votre mot de passe" required="required" autocomplete="off">
-                <p> style="color: red;"<?php if (isset($erreurconfirmation)) echo $erreurconfirmation ?></p>
+                <p style="color: red;"><?php if (isset($erreurconfirmation)) echo $erreurconfirmation ?></p>
             </div>
 
             <button type="submit" name="registerform"> Valider votre inscription </button>

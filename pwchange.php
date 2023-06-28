@@ -68,7 +68,7 @@ if ($getId != $_SESSION['id']) header("Location: index.php");
 
         <div>
             <button type="submit" name="pwchange">Valider le nouveau mot de passe</button>
-            <p> style="color: red;"<?php if (isset($erreur)) echo $erreur ?></p>
+            <p style="color: red;"><?php if (isset($erreur)) echo $erreur ?></p>
         </div>
 
     </form>
