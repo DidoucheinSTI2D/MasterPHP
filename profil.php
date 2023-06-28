@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MasterPHP - Profil</title>
-</head>
 <?php
 session_start();
 require './structure/config.php';
@@ -17,23 +9,33 @@ if ($getId != $_SESSION['id']) header("Location: login.php");
 
 
 
-    $connect = $bdd->prepare('SELECT * FROM user WHERE id = :id');
-    $connect->bindValue('id', $getId, PDO::PARAM_INT);
-    $resultat = $connect->execute();
-    $infoUtilisateur = $connect->fetch();
+$connect = $bdd->prepare('SELECT * FROM user WHERE id = :id');
+$connect->bindValue('id', $getId, PDO::PARAM_INT);
+$resultat = $connect->execute();
+$infoUtilisateur = $connect->fetch();
 
 
-    $Email = $infoUtilisateur['Email'];
-    $Nom = $infoUtilisateur['Nom'];
-    $Prenom = $infoUtilisateur['Prenom'];
-    $id = $infoUtilisateur['id'];
-    $role = $infoUtilisateur['role'];
+$Email = $infoUtilisateur['Email'];
+$Nom = $infoUtilisateur['Nom'];
+$Prenom = $infoUtilisateur['Prenom'];
+$id = $infoUtilisateur['id'];
+$role = $infoUtilisateur['role'];
 
-    $changepn = "pnchange.php?id=" . $id;
-    $pwchange = "pwchange.php?id=" . $id;
-    $backoffice = "./admin/backoffice.php?id=" . $id;
+$changepn = "pnchange.php?id=" . $id;
+$pwchange = "pwchange.php?id=" . $id;
+$backoffice = "./admin/backoffice.php?id=" . $id;
 
 ?>
+
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MasterPHP - Profil</title>
+</head>
 
 <body>
     <h1>Bienvenue sur votre espace </h1>

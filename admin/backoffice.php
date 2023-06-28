@@ -1,3 +1,37 @@
+<?php
+require "../structure/config.php";
+
+session_start();
+require "../structure/config.php";
+
+if (!isset($_SESSION['id'])) {
+    header("Location: ../login.php?error=notconnected");
+    exit;
+}
+
+$getId = $_SESSION['id'];
+
+$connect = $bdd->prepare('SELECT * FROM user WHERE id = :id');
+$connect->bindValue('id', $getId, PDO::PARAM_INT);
+$resultat = $connect->execute();
+$infoUtilisateur = $connect->fetch();
+
+$id = $infoUtilisateur['id'];
+$role = $infoUtilisateur['role'];
+
+$profil = "../profil.php?id=" . $id;
+
+if ($role != 'admin') {
+    header("Location: ../profil.php?id=" . $getId . "&error=user");
+    exit;
+}
+
+$sqlget = "SELECT Prenom, Nom, Email, role, id FROM user";
+$result = $bdd->query($sqlget);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -7,38 +41,6 @@
     <title>MasterPHP - Backoffice</title>
 </head>
 
-<?php
-require "../structure/config.php";
-
-session_start();
-require "../structure/config.php";
-
-    if (!isset($_SESSION['id'])) {
-        header("Location: ../login.php?error=notconnected");
-        exit;
-    }
-
-    $getId = $_SESSION['id'];
-
-    $connect = $bdd->prepare('SELECT * FROM user WHERE id = :id');
-    $connect->bindValue('id', $getId, PDO::PARAM_INT);
-    $resultat = $connect->execute();
-    $infoUtilisateur = $connect->fetch();
-
-    $id = $infoUtilisateur['id'];
-    $role = $infoUtilisateur['role'];
-
-    $profil = "../profil.php?id=" . $id;
-
-    if ($role != 'admin') {
-        header("Location: ../profil.php?id=" . $getId . "&error=user");
-        exit;
-    }
-
-    $sqlget = "SELECT Prenom, Nom, Email, role, id FROM user";
-    $result = $bdd->query($sqlget);
-
-?>
 
 
 <body>

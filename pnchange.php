@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MasterPHP - Modification</title>
-</head>
 <?php
 session_start();
 require './structure/config.php';
@@ -15,15 +7,15 @@ if (!empty($_GET['id'])) $getId = intval($_GET['id']);
 
 if ($getId != $_SESSION['id']) header("Location: index.php");
 
-    $connect = $bdd->prepare('SELECT * FROM user WHERE id = :id');
-    $connect->bindValue('id', $getId, PDO::PARAM_INT);
-    $resultat = $connect->execute();
-    $infoUtilisateur = $connect->fetch();
+$connect = $bdd->prepare('SELECT * FROM user WHERE id = :id');
+$connect->bindValue('id', $getId, PDO::PARAM_INT);
+$resultat = $connect->execute();
+$infoUtilisateur = $connect->fetch();
 
 
-    $Nom = $infoUtilisateur['Nom'];
-    $Prenom = $infoUtilisateur['Prenom'];
-    $id = $infoUtilisateur['id'];
+$Nom = $infoUtilisateur['Nom'];
+$Prenom = $infoUtilisateur['Prenom'];
+$id = $infoUtilisateur['id'];
 
 
 
@@ -51,6 +43,15 @@ if (isset($_POST['changepn'])){
 
 
 ?>
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MasterPHP - Modification</title>
+</head>
 
 <body>
     <h1>Changement de Nom et Prenom </h1>

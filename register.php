@@ -1,34 +1,27 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MasterPHP - S'inscrire</title>
-</head>
 <?php
- require "./structure/config.php";
+require "./structure/config.php";
 
- if (isset($_POST['registerform'])){
+if (isset($_POST['registerform'])){
 
-     if(
-         empty($_POST['Prenom'])||
-         empty($_POST['Nom'])||
-         empty($_POST['Email'])||
-         empty($_POST['Password'])||
-         empty($_POST['password_validation'])
-     )die();
+    if(
+        empty($_POST['Prenom'])||
+        empty($_POST['Nom'])||
+        empty($_POST['Email'])||
+        empty($_POST['Password'])||
+        empty($_POST['password_validation'])
+    )die();
 
-     $Prenom = $_POST['Prenom'];
-     $Nom = $_POST['Nom'];
-     $Password = $_POST['Password'];
-     $Email = $_POST['Email'];
-     $password_validation = $_POST['password_validation'];
+    $Prenom = $_POST['Prenom'];
+    $Nom = $_POST['Nom'];
+    $Password = $_POST['Password'];
+    $Email = $_POST['Email'];
+    $password_validation = $_POST['password_validation'];
 
-     $pwlength = strlen($Password);
-     $nomlenght = strlen($Nom);
-     $prenomlenght = strlen($Prenom);
+    $pwlength = strlen($Password);
+    $nomlenght = strlen($Nom);
+    $prenomlenght = strlen($Prenom);
 
-     $pwhash = password_hash($Password, PASSWORD_DEFAULT);
+    $pwhash = password_hash($Password, PASSWORD_DEFAULT);
 
     if ($prenomlenght > 50 || $prenomlenght < 3) $erreurprenom = "Votre prénom ne doit pas faire moins de 3 caractères ou plus de 50 caractères.";
     if ($nomlenght > 50 || $nomlenght < 3) $erreurnom = "Votre nom ne doit pas faire moins de moins de 3 caractères ou plus de 50 caractères";
@@ -48,8 +41,17 @@
 
 
 
- }
+}
 ?>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MasterPHP - S'inscrire</title>
+</head>
+
 <body>
     <h1>Formulaire d'inscription</h1>
     <div>
