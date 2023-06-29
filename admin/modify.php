@@ -76,7 +76,6 @@ if (isset($_GET['id'])) {
                 $erreurConfirmation = "Les 2 mots de passe indiqués ne correspondent pas.";
             }
 
-            // TODO refactor: peut faire plus simple en 3-4 lignes
             if (empty($erreurPrenom) && empty($erreurNom) && empty($erreurPassword) && empty($erreurEmail) && empty($erreurConfirmation)) {
                 if (!empty($newPassword)) {
                     $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
